@@ -1,4 +1,20 @@
 <h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<div class="row">
+   <div class="span8">
+   	<p>Users for Management:</p>
+  	<% @users.each do |user| %>
+    <p><%=link_to user.name, user %></p>
+    <% end %>
+   </div>
+   <div class="span4">
+   	<p>Information for Employees:</p>
+    <% if user_signed_in? %>
+   	<% @employees.each do |employee| %>
+   	<p><%= link_to employee.name, employee %></p>
+   	<% end %>
+    <% else %>
+    <p>Please sign in first to see employees</p>
+    <% end %>
+   </div>
+</div>
+

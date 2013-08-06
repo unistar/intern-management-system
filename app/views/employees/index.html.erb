@@ -1,0 +1,39 @@
+<h1>Employees</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>University</th>
+    <th>Highest Degree</th>
+    <th>Cellphone</th>
+    <th>Email</th>
+    <th>Graduation Date</th>
+    <th>Resume</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @employees.each do |employee| %>
+  <tr>
+    <td><%= link_to employee.name, employee  %></td>
+    <td><%= employee.univ %></td>
+    <td><%= employee.degree %></td>
+    <td><%= employee.cell %></td>
+    <td><%= employee.email %></td>
+    <td><%= employee.grad_time %></td>
+    <td><%= link_to employee.resume_file_name, employee.resume.url %></td>
+    <% if employee.evaluations.empty? %>
+    <td><%= link_to 'Evaluation', new_employee_evaluation_path(employee) %></td>
+    <% else %>
+    <td><%= link_to 'Evaluation', employee_evaluations_path(employee) %></td>
+    <% end %>
+    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+    <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New employee', new_employee_path %>

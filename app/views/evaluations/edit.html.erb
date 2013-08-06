@@ -1,0 +1,6 @@
+<h1>Editing evaluation</h1>
+<%= render 'form' %>
+<!-- /evaluations/:id -->
+<%= link_to 'Show',  [@evaluation.employee, @evaluation] %> |
+<!-- /employees/:employee_id/evaluations/ -->
+<%= link_to 'Back', employee_evaluations_path(@evaluation.employee) %>

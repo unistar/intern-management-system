@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418171112) do
+ActiveRecord::Schema.define(:version => 20130805064710) do
+
+  create_table "employees", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "univ"
+    t.string   "degree"
+    t.date     "grad_time"
+    t.integer  "cell",                :limit => 8
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
+  end
+
+  create_table "evaluations", :force => true do |t|
+    t.date     "interview_time"
+    t.string   "interviewer"
+    t.string   "subject"
+    t.string   "comm_skill"
+    t.string   "tech_skill"
+    t.text     "passion"
+    t.string   "potential"
+    t.string   "fit"
+    t.integer  "employee_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "evaluations", ["employee_id"], :name => "index_evaluations_on_employee_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

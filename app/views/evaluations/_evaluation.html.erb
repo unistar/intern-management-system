@@ -1,0 +1,30 @@
+<tr>
+	<th>Interview Time</th>
+	<th>Interviewer</th>
+	<th>Subject</th>
+	<th>Communication Skill</th>
+	<th>Technical Skill</th>
+	<th>Passion</th>
+	<th>Potential</th>
+	<th>Fit</th>
+	<th></th>
+</tr>
+<% @evaluations.each do |evaluation| %>
+<tr>
+	<td><%= evaluation.interview_time %></td>	
+	<td><%= evaluation.interviewer %></td>
+	<td><%= evaluation.subject %></td>
+	<td><%= evaluation.comm_skill %></td>
+	<td><%= evaluation.tech_skill %></td>
+	<td><%= evaluation.passion %></td>
+	<td><%= evaluation.potential %></td>
+	<td><%= evaluation.fit %></td>
+ 
+  <td>
+  	<%= link_to 'New', new_employee_evaluation_path(evaluation.employee) %> |
+  	<%= link_to 'Edit', edit_employee_evaluation_path(evaluation.employee, evaluation) %> | 
+	<%= link_to "Delete", [evaluation.employee, evaluation], :method => :delete, :confirm => "You sure?" %>
+  </td>
+
+</tr>
+<% end %>

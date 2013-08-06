@@ -1,0 +1,45 @@
+
+<p>
+  <b>Name:</b>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <b>University:</b>
+  <%= @employee.univ %>
+</p>
+
+<p>
+  <b>Highest Degree:</b>
+  <%= @employee.degree %>
+</p>
+
+<p>
+  <b>Cellphone:</b>
+  <%= @employee.cell %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @employee.email %>
+</p>
+
+<p>
+  <b>Graduation Date:</b>
+  <%= @employee.grad_time %>
+</p>
+
+<p>
+  <b>Resume:</b>
+  <%= link_to @employee.resume_file_name, @employee.resume.url %>
+</p>
+
+<% unless @employee.evaluations.empty? %>
+<p><b>Interview Evaluation:</b></p>
+  <table class="table table-condensed" summary="Employee evaluations">
+  	<%= render @evaluations %>
+  </table>
+<% end %>
+
+<%= link_to 'Edit employee', edit_employee_path(@employee) %> |
+<%= link_to 'Back to employees', employees_path %>

@@ -1,0 +1,54 @@
+
+<%= form_for @employee, :html => { :multipart => true } do |f| %>
+  <% if @employee.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+    <ul>
+    <% @employee.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :univ, "University" %><br />
+    <%= f.text_field :univ %>
+  </div>
+   <div class="field">
+    <%= f.label :degree, "Highest Degree" %><br />
+    <%= f.text_field :degree %>
+  </div>
+   <div class="field">
+    <%= f.label :cell, "Cellphone" %><br />
+    <%= f.text_field :cell %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+   <div class="field">
+    <%= f.label :grad_time, "Graduation Date" %><br />
+    <%= date_select(:employee, :grad_time, start_year:2000, use_month_numbers: true ) %>
+  </div>
+  
+  <%= "Resume" %>
+  <div class="field">
+    <% if controller.action_name == "new" %>
+    <%= f.label :resume, "No resume has been uploaded. Please upload one!" %>
+    <% else %>
+    <%= f.label :resume, @employee.resume_file_name %>
+    <% end %>
+    <br />
+    <%= f.file_field :resume %>
+  </div>
+
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

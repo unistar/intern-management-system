@@ -1,0 +1,37 @@
+<p><b>Interview assessment for <%= link_to @evaluation.employee.name, @evaluation.employee %></b></p><br />
+<p>
+  <b>Interview Time:</b>
+  <%= @evaluation.interview_time %>
+</p>
+<p>
+  <b>Interviewer:</b>
+  <%= @evaluation.interviewer %>
+</p>
+<p>
+  <b>Subject:</b>
+  <%= @evaluation.subject %>
+</p>
+<p>
+  <b>Communication Skill:</b>
+  <%= @evaluation.comm_skill %>
+</p>
+<p>
+  <b>Technical Skill:</b>
+  <%= @evaluation.tech_skill %>
+</p>
+<p>
+  <b>Passion:</b>
+  <%= @evaluation.passion %>
+</p>
+<p>
+  <b>Potential:</b>
+  <%= @evaluation.potential %>
+</p>
+<p>
+  <b>Fit:</b>
+  <%= @evaluation.fit %>
+</p>
+<!-- /evaluations/:id/edit -->
+<%= link_to 'Edit', edit_employee_evaluation_path(@evaluation.employee, @evaluation) %> |
+<!-- /employees/:employee_id/evaluations/ -->
+<%= link_to 'Back', employee_evaluations_path(@evaluation.employee) %>

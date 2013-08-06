@@ -1,0 +1,38 @@
+<h1>Listing Evaluations</h1>
+<table class="table table-condensed">
+  <tr>
+    <th>Interviewee</th>
+    <th>Interview Time</th>
+    <th>Interviewer</th>
+    <th>Subject</th>
+    <th>Communication Skill</th>
+    <th>Technical Skill</th>
+    <th>Passion</th>
+    <th>Potential</th>
+    <th>Fit</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @evaluations.each do |evaluation| %>
+  <tr>
+    <td><%= link_to evaluation.employee.name, evaluation.employee %></td>
+    <td><%= evaluation.interview_time %></td>
+    <td><%= evaluation.interviewer %></td>
+    <td><%= evaluation.subject %></td>
+    <td><%= evaluation.comm_skill %></td>
+    <td><%= evaluation.tech_skill %></td>
+    <td><%= evaluation.passion %></td>
+    <td><%= evaluation.potential %></td>
+    <td><%= evaluation.fit %></td>
+    <!-- /evaluations/:id -->
+    <td><%= link_to 'Show', [evaluation.employee, evaluation] %></td>
+    <!-- /evaluations/:id/edit -->
+    <td><%= link_to 'Edit', edit_employee_evaluation_path(evaluation.employee, evaluation) %></td>
+    <!-- /evaluations/:id -->
+    <td><%= link_to 'Delete', [evaluation.employee, evaluation], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'New evaluation', new_employee_evaluation_path %> <!-- /employees/:employee_id/evaluations/new -->
