@@ -1,16 +1,4 @@
 <tr>
-	<th>Interview Time</th>
-	<th>Interviewer</th>
-	<th>Subject</th>
-	<th>Communication Skill</th>
-	<th>Technical Skill</th>
-	<th>Passion</th>
-	<th>Potential</th>
-	<th>Fit</th>
-	<th></th>
-</tr>
-<% @evaluations.each do |evaluation| %>
-<tr>
 	<td><%= evaluation.interview_time %></td>	
 	<td><%= evaluation.interviewer %></td>
 	<td><%= evaluation.subject %></td>
@@ -27,4 +15,3 @@
   </td>
 
 </tr>
-<% end %>

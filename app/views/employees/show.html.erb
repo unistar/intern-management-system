@@ -34,10 +34,21 @@
   <%= link_to @employee.resume_file_name, @employee.resume.url %>
 </p>
 
-<% unless @employee.evaluations.empty? %>
+<% unless @evaluations.empty? %>
 <p><b>Interview Evaluation:</b></p>
-  <table class="table table-condensed" summary="Employee evaluations">
-  	<%= render @evaluations %>
+  <table class="table table-condensed" >
+    <tr>
+      <th>Interview Time</th>
+      <th>Interviewer</th>
+      <th>Subject</th>
+      <th>Communication Skill</th>
+      <th>Technical Skill</th>
+      <th>Passion</th>
+      <th>Potential</th>
+      <th>Fit</th>
+      <th></th>
+    </tr>
+    <%= render @evaluations %>
   </table>
 <% end %>
 
